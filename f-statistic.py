@@ -1,4 +1,5 @@
 import numpy as np
+import termtables as tt
 
 def sum_of_squares(data):
     sum = 0
@@ -19,7 +20,18 @@ def SSTr(data: np.array):
 
 def SSE(data: np.array):
     return SST(data)-SSTr(data)
-    
+
+def MSTr(data: np.array):
+    I = len(data)
+    return SSTr(data)/(I-1)
+
+def MSE(data: np.array):
+    I = len(data)
+    J = len(data[0])
+    return SSE(data)/(I*(J-1))
+
+def f(data: np.array):
+    return MSTr(data)/MSE(data)
 
 def sum_rows(data: np.array):
     sums = []
@@ -30,22 +42,35 @@ def sum_rows(data: np.array):
         sums.append(p_sum)
     return sums
 
-def main():
-    # data = np.array(   [[321.2,	409.5,	311.0,	326.5,	316.8,	349.8,	309.7],
-    #                     [401.1,	347.2,	361.0,	404.5,	331.0,	348.9,	381.7],
-    #                     [389.4,	366.2,	351.0,  357.1,	409.9,	367.3,	382.0],
-    #                     [353.7,	452.9,	461.4,	433.1,	410.6,	384.2,	362.6],
-    #                     [406.4,	441.8,	419.9,	410.7,	473.4,	441.2,	465.8]])
+def get_table(data):
+    I = len(data)
+    J = len(data[0])
+    v1 = I - 1
+    v2 = I*(J-1)
+    _SSTR = SSTr(data).round(2)
+    _SSE = SSE(data).round(2)
+    _SST = SST(data).round(2)
+    _MSTR = MSTr(data).round(2)
+    _MSE = MSE(data).round(2)
+    _f = f(data).round(2)
     
+    
+    table = tt.to_string(
+    [["Treatements", v1, _SSTR, _MSTR, _f], ["Error", v2, _SSE, _MSE, "X"], ["Total", v1+v2, _SST, "X", "X"]],
+    header=["Source of Variation", "Degrees of Freedom", "Sum of Squares", "Mean Square", "f"],
+    style=tt.styles.ascii_thin_double,
+)
+    return(table) 
+    
+    
+
+def main():   
     data = np.array([[67,50,70,60,55],
                      [49,32,65,39,43],
                      [40,39,41,60,45]])
     
 
-    
-    print("SST: ",SST(data))
-    print("SSTr: ",SSTr(data))
-    print("SSE: ",SSE(data))
+    print(get_table(data))
     
 
 if __name__ == "__main__":
