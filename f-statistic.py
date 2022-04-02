@@ -82,14 +82,9 @@ def main():
                      [28,33,34,30,29],
                      [28,35,34,29,33]])
     
-    
- 
     alpha = .05
     print(get_table(data))
     hypTest(data, alpha)
-    
-   
-    
 
 if __name__ == "__main__":
     main()
