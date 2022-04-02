@@ -1,6 +1,8 @@
 import numpy as np
 import termtables as tt
-import scipy.stats as sps  
+import scipy.stats as sps
+import math
+from itertools import combinations  
 import warnings
 warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning)
 
@@ -73,7 +75,7 @@ def get_table(data):
     style=tt.styles.ascii_thin_double)
     return(table) 
 
-def hypTest(data, alpha):
+def hyp_test(data, alpha):
     I = len(data)
     J = len(data[0])
     v1 = I - 1
@@ -85,14 +87,35 @@ def hypTest(data, alpha):
     else:
         print(_f, " < ", _fcrit, "which means p > a so we fail to reject H0")
 
+def get_w_vals(data, alpha):
+    print("Enter Q from table A.10 with v =",size(data)-len(data), " m =",len(data)," a =",alpha)
+    Q = input("Q: ")
+    idx = list(range(len(data)))
+    pairs = list(combinations(idx, 2))
+    _MSE = MSE(data)
+    for pair in pairs:
+        i = pair[0]
+        j = pair[1]
+        Ji = len(data[i])
+        Jj = len(data[j])
+        sqt = math.sqrt(((_MSE/2)*((1/Ji)+(1/Jj))))
+        W = round(float(Q) * float(sqt),2)
+        print("W",i+1,",",j+1,": ",W)
+
 def main():
     data = np.array([[67,50,70,60,55,75],
                      [49,32,65,39,43],
                      [40,39,41,60,45,30,28]])
+    
     alpha = .05
     
     print(get_table(data))
-    hypTest(data, alpha)
+    hyp_test(data, alpha)
+    get_w_vals(data, alpha)
+   
+    
+    
+    
 
 if __name__ == "__main__":
     main()
