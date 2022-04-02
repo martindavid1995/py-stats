@@ -1,3 +1,4 @@
+from statistics import mean
 import numpy as np
 import termtables as tt
 import scipy.stats as sps
@@ -85,6 +86,19 @@ def hyp_test(data, alpha):
         print(_f, " > ", _fcrit, "which means p < a so we reject H0")
     else:
         print(_f, " < ", _fcrit, "which means p > a so we fail to reject H0")
+        
+def getMeans(data: np.array):
+    means = []
+    for i in range(len(data)):
+        arr = data[i]
+        sum = 0
+        for j in range(len(arr)):
+            sum += data[i][j]
+        means.append(round(sum/len(data[i]),2))
+    return means 
+    
+    
+
 
 def get_w_vals(data, alpha):
     print("Enter Q from table A.10 with v =",size(data)-len(data), " m =",len(data)," a =",alpha)
@@ -100,11 +114,13 @@ def get_w_vals(data, alpha):
         sqt = math.sqrt(((_MSE/2)*((1/Ji)+(1/Jj))))
         W = round(float(Q) * float(sqt),2)
         print("W",i+1,",",j+1,": ",W)
+        means = getMeans(data)
+        diff = round(means[i]-means[j], 2)
+        if (diff > W):
+            print("Significant difference between ",i+1, " and ",j+1)
 
 def main():
-    data = np.array([[67,50,70,60,55,75],
-                     [49,32,65,39,43],
-                     [40,39,41,60,45,30,28]])
+    data = np.array([])
 
     alpha = .05
     
