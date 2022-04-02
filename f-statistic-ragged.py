@@ -97,9 +97,6 @@ def getMeans(data: np.array):
         means.append(round(sum/len(data[i]),2))
     return means 
     
-    
-
-
 def get_w_vals(data, alpha):
     print("Enter Q from table A.10 with v =",size(data)-len(data), " m =",len(data)," a =",alpha)
     Q = input("Q: ")
