@@ -66,8 +66,7 @@ def get_table(data):
     _SST = round(SST(data),2)
     _MSTR = round(MSTr(data),2)
     _MSE = round(MSE(data),2)
-    _f = round(f(data),2)
-    
+    _f = round(f(data),2) 
     
     table = tt.to_string(
     [["Treatements", v1, _SSTR, _MSTR, _f], ["Error", v2, _SSE, _MSE, "X"], ["Total", v1+v2, _SST, "X", "X"]],
@@ -106,16 +105,12 @@ def main():
     data = np.array([[67,50,70,60,55,75],
                      [49,32,65,39,43],
                      [40,39,41,60,45,30,28]])
-    
+
     alpha = .05
     
     print(get_table(data))
     hyp_test(data, alpha)
     get_w_vals(data, alpha)
-   
-    
-    
-    
 
 if __name__ == "__main__":
     main()
