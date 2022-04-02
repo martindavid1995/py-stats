@@ -1,5 +1,6 @@
 import numpy as np
 import termtables as tt
+import scipy.stats as sps
 
 def sum_of_squares(data):
     sum = 0
@@ -58,18 +59,36 @@ def get_table(data):
     table = tt.to_string(
     [["Treatements", v1, _SSTR, _MSTR, _f], ["Error", v2, _SSE, _MSE, "X"], ["Total", v1+v2, _SST, "X", "X"]],
     header=["Source of Variation", "Degrees of Freedom", "Sum of Squares", "Mean Square", "f"],
-    style=tt.styles.ascii_thin_double,
-)
+    style=tt.styles.ascii_thin_double)
     return(table) 
-    
-    
 
+def hypTest(data, alpha):
+    I = len(data)
+    J = len(data[0])
+    v1 = I - 1
+    v2 = I*(J-1)
+    _f = f(data).round(2)
+    _fcrit = sps.f.ppf(q=1-alpha, dfn=v1, dfd=v2).round(2);
+    if _f > _fcrit:
+        print(_f, " > ", _fcrit, "which means p < a so we reject H0")
+    else:
+        print(_f, " < ", _fcrit, "which means p > a so we fail to reject H0")
+    
 def main():
     data = np.array([[67,50,70,60,55],
                      [49,32,65,39,43],
-                     [40,39,41,60,45]])
-
+                     [40,39,41,60,45],
+                     [75,70,70,75,70],
+                     [28,33,34,30,29],
+                     [28,35,34,29,33]])
+    
+    
+ 
+    alpha = .05
     print(get_table(data))
+    hypTest(data, alpha)
+    
+   
     
 
 if __name__ == "__main__":
