@@ -120,7 +120,9 @@ def get_w_vals(data, alpha):
             print("Significant difference between ",i+1, " and ",j+1)
 
 def main():
-    data = np.array([])
+    data = np.array([[67,50,70,60,55,75],
+                     [49,32,65,39,43],
+                     [40,39,41,60,45,30,28]])
 
     alpha = .05
     
