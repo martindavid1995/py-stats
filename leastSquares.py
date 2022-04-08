@@ -52,14 +52,14 @@ def b1(x,y):
 def b2(x,y):
     return (sum(y)-b1(x,y)*sum(x))/len(x)
 
-def SEE(x,y):
+def SSE(x,y):
     return Sxx(y)-b1(x,y)*Sxy(x,y)
 
 def variance(x,y):
-    return SEE(x,y)/(len(x) - 2)
+    return SSE(x,y)/(len(x) - 2)
 
 def coefficient_determination(x,y):
-    return 1-(SEE(x,y)/Sxx(y))
+    return 1-(SSE(x,y)/Sxx(y))
         
 if __name__ == "__main__":
     main()
