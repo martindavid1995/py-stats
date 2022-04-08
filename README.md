@@ -5,6 +5,7 @@
 * **least-squares**
 > Computes the following linear regression model parameters
 > * Least-squares Line of best fit
-  * Variance
-  * Standard Deviation
-  * Coefficient Determination
+> * Variance
+> * Standard Deviation
+> * Coefficient Determination
+> Provides an option to plot data in order to help assess linear trends
