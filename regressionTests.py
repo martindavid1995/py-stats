@@ -1,7 +1,7 @@
 import leastSquares as ls
 import math
 
-two_tailed = False
+two_tailed = True
 alpha = .05
 
 def main():
