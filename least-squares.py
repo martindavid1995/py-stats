@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 from sympy import true
-plt.style.use('seaborn-whitegrid')
 import numpy as np
 import math
+plt.style.use('seaborn-whitegrid')
 
 def main():
     # Change to True to output a scatterplot of the data
