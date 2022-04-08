@@ -38,7 +38,6 @@ def b2(x,y):
 def SEE(x,y):
     return Sxx(y)-b1(x,y)*Sxy(x,y)
 
-
 def variance(x,y):
     return SEE(x,y)/(len(x) - 2)
 
