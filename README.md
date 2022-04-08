@@ -14,4 +14,4 @@
 > Provides an option to plot data in order to help assess linear trends.
 
 **regressionTests.py**
-> Calculates confidence intervals and performs hypothesis tests of regression tests. Computes ANOVA f-statistic.
+> Calculates confidence intervals and performs hypothesis tests of regression tests. Computes ANOVA f-statistic, coefficient of determination, and standard deviations. 
