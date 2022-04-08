@@ -1,10 +1,10 @@
 ## Python programs to compute statistics that are too annoying to do by hand
 
 ### Programs
-**f-statistic**
+**fStatistic.py**
 > Performs multiple comparisons procedure for identifying a difference in means by computing an f-statistic. Generates an accurate ANOVA table. Determines which pairs of data have significant differences by calculating W range. Works for groups of constant or varying lengths. 
 
-**least-squares**
+**leastSquares.py**
 > Computes the following linear regression model parameters
 > * Least-squares line of best fit
 > * Variance
