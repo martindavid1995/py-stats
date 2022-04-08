@@ -8,4 +8,5 @@
 > * Variance
 > * Standard Deviation
 > * Coefficient Determination
+> 
 > Provides an option to plot data in order to help assess linear trends
