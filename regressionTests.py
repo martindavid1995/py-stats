@@ -11,7 +11,7 @@ def main():
     
     # get_CI(x,y)
     hyp_test(x,y)
-    
+     
     
 def get_CI(x,y):
     df = len(x)-2
