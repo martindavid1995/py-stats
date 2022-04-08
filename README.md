@@ -11,4 +11,7 @@
 > * Standard deviation
 > * Coefficient determination
 > 
-> Provides an option to plot data in order to help assess linear trends
+> Provides an option to plot data in order to help assess linear trends.
+
+**regressionTests.py**
+> Calculates confidence intervals and performs hypothesis tests of regression tests. Also computes ANOVA f-statistic.
