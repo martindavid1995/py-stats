@@ -1,42 +1,54 @@
 import leastSquares as ls
-import fStatistic as fs
 import math
 
-two_tailed = True
+two_tailed = False
 alpha = .05
 
 def main():
     x = [67,37,70,40,35,65,40,35,30,40]
     y = [75,85,60,90,80,75,70,90,95,80]
+  
+    if (len(x) != len(y)):
+        raise Exception("Length of x and y are not equal")
     
-    # get_CI(x,y)
+    get_std_dev(x,y)
+    get_r_2(x,y)
+    get_CI(x,y)
     hyp_test(x,y)
-     
+
+def get_r_2(x,y):
+    dec = 1 - (ls.SSE(x,y)/ls.Sxx(y))
+    dec = round(dec,4)
+    print("r-squared: ",dec)
+
+def get_std_dev(x,y):
+    print("Standard Deviation: ",round(math.sqrt(ls.variance(x,y)/ls.Sxx(x)),4))
     
 def get_CI(x,y):
     df = len(x)-2
     S = math.sqrt(ls.SSE(x,y)/(df))
-    if two_tailed:
-        a = alpha/2
-    print("Enter t critical value from table A.5 with v =",df,",a =",a)
+    a = alpha/2
+    print("Enter t critical value from table A.5 with v =",df,", a =",a)
     t = float(input("t: "))
     B1 = ls.b1(x,y)
     Sxx = ls.Sxx(x)
+    print(S)
     range = t * (S/(math.sqrt(Sxx)))
-    low = round(B1 - range,4)
-    high = round(B1 + range,4)
-    print("Standard Deviaton: ",S)
+    low = round(B1 - range,6)
+    high = round(B1 + range,6)
+    print("Standard Deviaton: ",round(S,4))
     print("(",low,",",high,")")
     
 def hyp_test(x,y):
     B1 = ls.b1(x,y)
     df = len(x)-2
     S = math.sqrt(ls.SSE(x,y)/(df))
-    Sxx = ls.Sxx(x)
+    Sxx = ls.Sxx(x)  
     B10 = float(input("Enter B1 nought: "))
     t = (B1-B10)/(S/math.sqrt(Sxx))
-    tr = round(t,1)
-    print("Enter t score from table A.8 with t =",abs(tr),"v =",df)
+    print(t)
+    tr = round(t,2)
+    print("Enter t score from table A.5 with t =",tr,"df = ",df)
     ts = float(input("t: "))
     if two_tailed:
         ts = ts * 2
