@@ -46,9 +46,8 @@ def hyp_test(x,y):
     Sxx = ls.Sxx(x)  
     B10 = float(input("Enter B1 nought: "))
     t = (B1-B10)/(S/math.sqrt(Sxx))
-    print(t)
     tr = round(t,2)
-    print("Enter t score from table A.5 with t =",tr,"df = ",df)
+    print("Enter t score from table A.10 with t =",tr,"df = ",df)
     ts = float(input("t: "))
     if two_tailed:
         ts = ts * 2

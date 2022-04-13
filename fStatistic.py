@@ -19,7 +19,7 @@ def main():
        
     print(get_table(data))
     hyp_test(data, alpha)
-    get_w_vals(data, alpha)
+    find_sig_differences(data, alpha)
     
 def is_ragged(data):
     l = len(data[0])
@@ -118,7 +118,7 @@ def getMeans(data: np.array):
         means.append(round(sum/len(data[i]),2))
     return means 
     
-def get_w_vals(data, alpha):
+def find_sig_differences(data, alpha):
     print("Enter Q from table A.10 with v =",size(data)-len(data), " m =",len(data)," a =",alpha)
     Q = input("Q: ")
     _MSE = MSE(data)
@@ -151,7 +151,6 @@ def get_w_vals(data, alpha):
             if (diff > W):
                 print("Significant difference between ",i+1, " and ",j+1)
             
-
 if __name__ == "__main__":
     main()
     
