@@ -1,9 +1,7 @@
 ## Python programs to compute statistics that are too annoying to do by hand
 
-### Utilities
+### Utilities - **Must be present in order for below programs to function**
 **summaryStatistics.py**
-
-**This file must be present in order for the below programs to function** 
 > Performs the following statistical computations:
 > * Sum of Squares
 > * Sxy, Sxx, Sxy
