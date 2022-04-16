@@ -29,3 +29,6 @@
 **predictYValues.py**
 > Calculates confidence intervals, prediction intervals, performs hypothesis tests, and determines regression equations for making inferences about statistical means.
 
+**correlation.py**
+> Performs hypothesis tests for samples using the sample correlation coefficient R.
+
