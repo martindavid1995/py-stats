@@ -2,7 +2,7 @@
 
 ### Utilities
 **summaryStatistics.py**
-> **This file must be present in order for the below programs to function** 
+**This file must be present in order for the below programs to function** 
 > Performs the following statistical computations:
 > * Sum of Squares
 > * Sxy, Sxx, Sxy
