@@ -1,6 +1,6 @@
 ## Python programs to compute statistics that are too annoying to do by hand
 
-### Utilities - **Must be present in order for below programs to function**
+### Utilities - **Must be in working directory in order for below programs to function**
 **summaryStatistics.py**
 > Performs the following statistical computations:
 > * Sum of Squares
