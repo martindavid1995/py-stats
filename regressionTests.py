@@ -1,5 +1,6 @@
 import summaryStatistics as ss
 import math
+import scipy.stats as sp
 
 two_tailed = True
 alpha = .05
@@ -7,14 +8,15 @@ alpha = .05
 def main():
     x = [67,37,70,40,35,65,40,35,30,40]
     y = [75,85,60,90,80,75,70,90,95,80]
-  
+
     if (len(x) != len(y)):
         raise Exception("Length of x and y are not equal")
     
-    get_std_dev(x,y)
-    get_r_2(x,y)
-    get_CI(x,y)
-    hyp_test(x,y)
+    # get_std_dev(x,y)
+    # get_r_2(x,y)
+    # get_CI(x,y)
+    # hyp_test(x,y)
+    
 
 def get_r_2(x,y):
     dec = 1 - (ss.SSE(x,y)/ss.Sxx(y))
@@ -28,8 +30,14 @@ def get_CI(x,y):
     df = len(x)-2
     S = math.sqrt(ss.SSE(x,y)/(df))
     a = alpha/2
-    print("Enter t critical value from table A.5 with v =",df,", a =",a)
-    t = float(input("t: "))
+    
+    if (two_tailed):
+        a_ = alpha/2
+    else:
+        a_ = alpha
+    
+    t = abs(sp.t.ppf(q=a_,df=len(x)-1))
+    
     B1 = ss.b1(x,y)
     Sxx = ss.Sxx(x)
     print(S)

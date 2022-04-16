@@ -6,8 +6,8 @@ import scipy.stats as sp
 alpha = .05
 
 def main():
-    x = [1.5,1.5,2.0,2.5,2.5,3.0,3.5,3.5,4.0]
-    y = [24.0,24.5,26.0,29.5,33.5,39.0,40.5,48.0,50.0]
+    x = [67,37,70,40,35,65,40,35,30,40]
+    y = [75,85,60,90,80,75,70,90,95,80]
     
     if (len(x) != len(y)):
         raise Exception("Length of x and y are not equal")
@@ -35,10 +35,14 @@ def t_statistic(x,y,b10):
     b1 = ss.b1(x,y)
     return ((b1-b10)/(S/math.sqrt(Sxx)))
     
-
 def p_value(x,t):
     return round(sp.t.sf(t, df=(len(x)-1)),4)
-    
+   
+def regEquation(x,y):
+    b0 = round(ss.b2(x,y),3)
+    b1 = round(ss.b1(x,y),3)
+    print(b0, " + ", b1,"*X")
+ 
 def confidenceInterval(x,y):
     print("--CONFIDENCE INTERVAL--")
     b0 = ss.b2(x,y)
