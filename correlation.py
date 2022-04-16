@@ -12,7 +12,6 @@ def main():
     if (len(x) != len(y)):
         raise Exception("Length of x and y are not equal")
     
-    
     hyp_test(x,y)
     
 def r_coef(x,y):
