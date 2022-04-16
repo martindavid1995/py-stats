@@ -1,4 +1,4 @@
-import leastSquares as ls
+import summaryStatistics as ss
 import math
 
 two_tailed = True
@@ -17,21 +17,21 @@ def main():
     hyp_test(x,y)
 
 def get_r_2(x,y):
-    dec = 1 - (ls.SSE(x,y)/ls.Sxx(y))
+    dec = 1 - (ss.SSE(x,y)/ss.Sxx(y))
     dec = round(dec,4)
     print("r-squared: ",dec)
 
 def get_std_dev(x,y):
-    print("Standard Deviation: ",round(math.sqrt(ls.variance(x,y)/ls.Sxx(x)),4))
+    print("Standard Deviation: ",round(math.sqrt(ss.variance(x,y)/ss.Sxx(x)),4))
     
 def get_CI(x,y):
     df = len(x)-2
-    S = math.sqrt(ls.SSE(x,y)/(df))
+    S = math.sqrt(ss.SSE(x,y)/(df))
     a = alpha/2
     print("Enter t critical value from table A.5 with v =",df,", a =",a)
     t = float(input("t: "))
-    B1 = ls.b1(x,y)
-    Sxx = ls.Sxx(x)
+    B1 = ss.b1(x,y)
+    Sxx = ss.Sxx(x)
     print(S)
     range = t * (S/(math.sqrt(Sxx)))
     low = round(B1 - range,6)
@@ -40,10 +40,10 @@ def get_CI(x,y):
     print("(",low,",",high,")")
     
 def hyp_test(x,y):
-    B1 = ls.b1(x,y)
+    B1 = ss.b1(x,y)
     df = len(x)-2
-    S = math.sqrt(ls.SSE(x,y)/(df))
-    Sxx = ls.Sxx(x)  
+    S = math.sqrt(ss.SSE(x,y)/(df))
+    Sxx = ss.Sxx(x)  
     B10 = float(input("Enter B1 nought: "))
     t = (B1-B10)/(S/math.sqrt(Sxx))
     tr = round(t,2)
