@@ -4,7 +4,7 @@
 **summaryStatistics.py**
 > Performs the following statistical computations:
 > * Sum of Squares
-> * Sxy, Sxx, Sxy
+> * Sxy, Sxx, Syy
 > * b1, b2
 > * SEE
 > * Variance
