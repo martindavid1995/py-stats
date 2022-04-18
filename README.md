@@ -4,7 +4,7 @@
 **summaryStatistics.py**
 > Performs the following statistical computations:
 > * Sum of Squares
-> * Sxy, Sxx, Sxy
+> * Sxy, Sxx, Syy
 > * b1, b2
 > * SEE
 > * Variance
@@ -28,4 +28,7 @@
 
 **predictYValues.py**
 > Calculates confidence intervals, prediction intervals, performs hypothesis tests, and determines regression equations for making inferences about statistical means.
+
+**correlation.py**
+> Performs hypothesis tests for samples using the sample correlation coefficient R.
 
