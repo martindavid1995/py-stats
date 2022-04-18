@@ -14,7 +14,6 @@ def main():
     
     # confidenceInterval(x,y)
     # predictionInterval(x,y)
-    # print(t_statistic(x,y))
     # hyp_test(x,y)
     
 def hyp_test(x,y):
