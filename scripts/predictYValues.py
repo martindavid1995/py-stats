@@ -1,4 +1,4 @@
-import summaryStatistics as ss
+import utilities.summaryStatistics as ss
 import math
 import statistics as st
 import scipy.stats as sp

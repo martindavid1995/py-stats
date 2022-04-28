@@ -8,7 +8,7 @@ import warnings
 warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning)
 
 def main():
-    # Variable length group data works, data can be a ragged array
+    # Variable length group data works, functions accept a ragged array
     data = np.array([[67,50,70,60,55],
                      [49,32,65,39,43],
                      [40,39,41,60,45],
