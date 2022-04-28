@@ -32,3 +32,5 @@
 **correlation.py**
 > Performs hypothesis tests for samples using the sample correlation coefficient R.
 
+**chiSquared.py**
+> Performs Chi-Squared hypothesis test for population proportions. Performs hypothesis tests for bulk uncategorized data given a set of cutoffs. 
