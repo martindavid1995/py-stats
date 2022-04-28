@@ -12,7 +12,7 @@ def main():
     if (len(x) != len(y)):
         raise Exception("Length of x and y are not equal")
     
-    # confidenceInterval(x,y)
+    confidenceInterval(x,y)
     # predictionInterval(x,y)
     # hyp_test(x,y)
     
