@@ -17,7 +17,6 @@ def main():
    
 def hypTest1Set(data, cutoffs):
     split = splitData(data, cutoffs)
-
     
     observed = []
     proportion = []
@@ -27,7 +26,6 @@ def hypTest1Set(data, cutoffs):
         proportion.append(1/(len(cutoffs)+1))
         
     hypTest(observed, proportion)
-
 
 def splitData(data, cutoffs):
     split = []
