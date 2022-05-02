@@ -34,3 +34,6 @@
 
 **chiSquared.py**
 > Performs Chi-Squared hypothesis test for population proportions. Performs hypothesis tests for bulk uncategorized data given a set of cutoffs. 
+
+**goodnessOfFit.py**
+> Performs Chi-Squared goodness of fit tests for homogeneity and independence through hypothesis testing.
